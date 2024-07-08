@@ -1,0 +1,44 @@
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
+// TODO: import login function from services/api
+
+function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const history = useHistory();
+
+    // TODO: Add logic to move to the Dashboard page
+    const handleLogin = (e) => {
+        e.preventDefault();
+        alert('Username: ${username}, Password: ${password}');
+    }
+
+    return (
+        <div className='container'>
+            <h2>Login</h2>
+            <form onSubmit={handleLogin}>
+                <div className='form-group'>
+                    <label>Username</label>
+
+                    <input type='text' className='form-control' 
+                           value={username} 
+                           onChange={(e) => setUsername(e.target.value)} 
+                        required />
+                </div>
+
+                <div className='form-group'>
+                    <label>Password</label>
+
+                    <input type='text' className='form-control' 
+                           value={password} 
+                           onChange={(e) => setUsername(e.target.value)} 
+                        required />
+                </div>
+
+                
+            </form>
+        </div>
+    );
+}
+
