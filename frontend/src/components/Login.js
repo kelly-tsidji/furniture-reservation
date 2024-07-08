@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // TODO: import login function from services/api
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    // TODO: uncomment late
+    const navigate = useNavigate();
 
     // TODO: Add logic to move to the Dashboard page
     const handleLogin = (e) => {
@@ -32,13 +33,14 @@ function Login() {
 
                     <input type='text' className='form-control' 
                            value={password} 
-                           onChange={(e) => setUsername(e.target.value)} 
+                           onChange={(e) => setPassword(e.target.value)} 
                         required />
                 </div>
+                <button type='submit' className='btn btn-primary'>Login</button>
 
-                
             </form>
         </div>
     );
 }
 
+export default Login;
