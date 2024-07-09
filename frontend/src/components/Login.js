@@ -12,7 +12,7 @@ function Login() {
     // TODO: Add logic to move to the Dashboard page
     const handleLogin = (e) => {
         e.preventDefault();
-        alert('Username: ${username}, Password: ${password}');
+        alert(`Username: ${username}, Password: ${password}`);
     }
 
     return (
