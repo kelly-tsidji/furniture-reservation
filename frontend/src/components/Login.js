@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // TODO: import login function from services/api
+// TODO: split function into parts
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // TODO: uncomment late
-    const navigate = useNavigate();
+    const navigate = useNavigate();     // TODO: figure out navigate later
 
     // TODO: Add logic to move to the Dashboard page
     const handleLogin = (e) => {
@@ -17,9 +17,12 @@ function Login() {
 
     return (
         <div className='container'>
+
             <h2>Login</h2>
+
             <form onSubmit={handleLogin}>
                 <div className='form-group'>
+
                     <label>Username</label>
 
                     <input type='text' className='form-control' 
@@ -29,6 +32,7 @@ function Login() {
                 </div>
 
                 <div className='form-group'>
+
                     <label>Password</label>
 
                     <input type='text' className='form-control' 
@@ -37,7 +41,6 @@ function Login() {
                         required />
                 </div>
                 <button type='submit' className='btn btn-primary'>Login</button>
-
             </form>
         </div>
     );
