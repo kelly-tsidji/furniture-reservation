@@ -5,18 +5,21 @@
 
 const express = require('express');
 const app = express();
+const router = require('./routes/router');
 
-// TODO: USE DIFFERENT PORT????
-const port = 3000;
+const port = 4000;
 
 app.use(express.json());
+app.use('/', router);
 
 const db = require("./models");
+const { Building } = require('./models');
 
-db.sequelize.sync({ alter: true }).then(() => {
+
+// db.sequelize.sync({ alter: true }).then(() => {
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
     });
-}).catch((error) => {
-    console.error('Error syncing database:', error);
-});
+// }).catch((error) => {
+//     console.error('Error syncing database:', error);
+// });
