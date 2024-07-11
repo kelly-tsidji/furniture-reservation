@@ -1,50 +1,39 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('User', {
+    const Item = sequelize.define('Item', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                notEmpty: true,
-            },
-        },
-        password: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true,
             },
         },
-        role: {
+        description: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true,
             },
         },
-        // new users must enter a unique email adress
-        email: {
+        category: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
             validate: {
-                isEmail: true,
                 notEmpty: true,
             },
         },
     });
 
-    User.associate = (models) => {
-        User.hasMany(models.WorkOrder, {
-            foreignKey: 'userId',
-            as: 'workOrders',
+    Item.associate = (models) => {
+        Item.hasMany(models.Inventory, {
+            foreignKey: 'itemId',
+            as: 'inventories',
         });
     };
 
-    return User;
+    return Item;
 };

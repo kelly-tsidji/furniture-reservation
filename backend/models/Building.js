@@ -31,13 +31,15 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Building.associate = (models) => {
+
         Building.hasMany(models.Room, {
             foreignKey: 'buildingId',
             as: 'rooms',
         });
-        Building.hasMany(models.Event, {
+        
+        Building.hasMany(models.WorkOrder, {
             foreignKey: 'buildingId',
-            as: 'events',
+            as: 'workOrders',
         });
     };
 

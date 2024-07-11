@@ -1,3 +1,6 @@
+// TODO: run sequelize mirgrations once done initializing tables!!!!!!
+// do it before adding data
+
 // TODO: revise this later
 
 const express = require('express');

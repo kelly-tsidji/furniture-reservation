@@ -22,11 +22,26 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    // Define associations
     Room.associate = (models) => {
+
         Room.belongsTo(models.Building, {
             foreignKey: 'buildingId',
             as: 'building',
+        });
+
+        Room.hasMany(models.Inventory, {
+            foreignKey: 'roomId',
+            as: 'inventories',
+        });
+
+        Room.hasMany(models.LoanedItem, {
+            foreignKey: 'deliveryRoomId',
+            as: 'deliveryLoanedItems',
+        });
+        
+        Room.hasMany(models.LoanedItem, {
+            foreignKey: 'returnRoomId',
+            as: 'returnLoanedItems',
         });
     };
 
