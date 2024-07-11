@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 notEmpty: true,
             },
@@ -28,6 +29,17 @@ module.exports = (sequelize, DataTypes) => {
             },
         },
     });
+
+    Building.associate = (models) => {
+        Building.hasMany(models.Room, {
+            foreignKey: 'buildingId',
+            as: 'rooms',
+        });
+        Building.hasMany(models.Event, {
+            foreignKey: 'buildingId',
+            as: 'events',
+        });
+    };
 
     return Building;
 };

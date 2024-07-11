@@ -10,7 +10,7 @@ app.use(express.json());
 
 const db = require("./models");
 
-db.sequelize.sync().then((req) => {
+db.sequelize.sync({ alter: true }).then(() => {
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
     });

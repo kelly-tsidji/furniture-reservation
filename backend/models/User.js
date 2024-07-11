@@ -27,6 +27,16 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true,
             },
         },
+        // new users must enter a unique email adress
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true,
+                notEmpty: true,
+            },
+        },
     });
 
     return User;
