@@ -3,11 +3,12 @@
 
 // TODO: revise this later
 
+const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const router = require('./routes/router');
 
-const port = 4000;
+dotenv.config();
 
 app.use(express.json());
 app.use('/', router);
@@ -15,8 +16,12 @@ app.use('/', router);
 const db = require("./models");
 const { Building } = require('./models');
 
+// TODO: change ports
+const port = process.env.PORT || 4000;
 
-// db.sequelize.sync({ alter: true }).then(() => {
+// TODO: do I still need sync????
+// TODO: remove port from print statement at the end
+// db.sequelize.sync().then(() => {
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
     });

@@ -3,15 +3,14 @@ const router = express.Router();
 
 const { Building } = require('../models');
 
-router.get('/models', (req, res) => {
-    res.send(Building);
-});
-
+// TODO: might add async to .get and .post???
 router.get('/built', (req, res) => {
     Building.findAll().then((buildings) => {
-        res.send(buildings)
+        res.send(buildings);
     })
+    .catch((err) => {
+        console.log(err);
+    });
 });
-
 
 module.exports = router;
