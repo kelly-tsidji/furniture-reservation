@@ -5,16 +5,17 @@
 
 const dotenv = require('dotenv');
 const express = require('express');
-const app = express();
+const cors = require('cors');
 const router = require('./routes/router');
+const db = require("./models");
+const { Building } = require('./models');
 
-dotenv.config();
-
+const app = express();
+app.use(cors());
 app.use(express.json());
 app.use('/', router);
 
-const db = require("./models");
-const { Building } = require('./models');
+dotenv.config();
 
 // TODO: change ports
 const port = process.env.PORT || 4000;

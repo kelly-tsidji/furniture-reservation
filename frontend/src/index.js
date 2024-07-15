@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// TODO: strict mode causes everything to render twice (or something like that)
+// remove before production build 
 root.render(
   <React.StrictMode>
     <App />

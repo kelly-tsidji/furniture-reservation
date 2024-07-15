@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import logo from './logo.svg';
+// import logo from './logo.svg';   // TODO: remove later??
 import './App.css';
 
 import Login from './components/Login.js';
 import Register from './components/Register.js';
+import Dashboard from './components/Dashboard.js';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </Router>
   );
