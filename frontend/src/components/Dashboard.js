@@ -30,8 +30,13 @@ function Dashboard() {
     }, [])
 
     return (
-        <h1>Hello</h1>
+        <header>
+            <h1>Dashboard: Upcoming Work Orders</h1>
+        </header>
     );    
+
+
+    
 }
 
 export default Dashboard;
