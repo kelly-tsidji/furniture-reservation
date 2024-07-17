@@ -1,0 +1,7 @@
+// TODO: add history of events
+
+// module.exports(sequelize, DataTypes) => {
+//     const History = sequelize.define('History', {
+        
+//     })
+// }

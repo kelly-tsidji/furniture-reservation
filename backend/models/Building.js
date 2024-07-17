@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         // this will be either uphill or downhill
         area: {
-            type: DataTypes.STRING, 
+            type: DataTypes.ENUM('Uphill', 'Downhill'), 
             allowNull: false,
             validate: {
                 notEmpty: true,
