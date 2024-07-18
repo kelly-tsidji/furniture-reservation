@@ -1,3 +1,4 @@
+// TODO: need to add name of user
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         id: {

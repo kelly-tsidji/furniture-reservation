@@ -6,14 +6,18 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
-const router = require('./routes/router');
 const db = require("./models");
-const { Building } = require('./models');
+
+const router = require('./routes/router');
+const workOrderRoutes = require('./routes/workOrderRoutes');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// TODO: might want to change routes once more api routes are added
 app.use('/', router);
+app.use('/', workOrderRoutes);
 
 dotenv.config();
 
