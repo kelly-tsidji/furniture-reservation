@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FormattedDate from './Date';
 
 function Dashboard() {
 
@@ -37,13 +38,16 @@ function Dashboard() {
         <div key = {order.id}>
             <h2>Work Order #{order.workOrderId}</h2>
             <p>
-                Event: {order.event} ({order.startDate} to {order.endDate})
+                Event: {order.event} ({FormattedDate(order.startDate)} to {FormattedDate(order.endDate)})
             </p>
             <p>
                 Event Building: {order.building.name}
             </p>
             <p>
                 Added by: {order.user.username}
+            </p>
+            <p>
+                View details
             </p>
         </div>
     )
