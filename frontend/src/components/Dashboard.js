@@ -5,7 +5,6 @@ function Dashboard() {
 
     // TODO: change ports
     const port = process.env.REACT_APP_PORT || 4000;
-
     const [dbData, setDbData] = useState([]);
 
     // fetchData() gets the work orders from the database 
@@ -35,32 +34,34 @@ function Dashboard() {
 
     // stores each work order with its associated event, building, and user
     const workOrders = dbData.map(order =>
-        <div key = {order.id}>
-            <h2>Work Order #{order.workOrderId}</h2>
-            <p>
-                Event: {order.event} ({FormattedDate(order.startDate)} to {FormattedDate(order.endDate)})
-            </p>
-            <p>
-                Event Building: {order.building.name}
-            </p>
-            <p>
-                Added by: {order.user.username}
-            </p>
-            <p>
-                View details
-            </p>
+        <div key = {order.id} className='card mb-3'>
+            <div className='card-body'>
+                <h2 className='card-title'>Work Order #{order.workOrderId}</h2>
+                <p className='card-text'>
+                    Event: {order.event} ({FormattedDate(order.startDate)} to {FormattedDate(order.endDate)})
+                </p>
+                <p className='card-text'>
+                    Event Building: {order.building.name}
+                </p>
+                <p className='card-text'>
+                    Added by: {order.user.username}
+                </p>
+                <a href='#' className='btn btn-primary'>
+                    View details
+                </a>
+            </div>
         </div>
     )
 
     return (
 
-        <>
-            <header>
-                <h1>Dashboard: Upcoming Work Orders</h1>
+        <div className='container'>
+            <header className='my-4'>
+                <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
             </header>
 
             {workOrders}
-        </>
+        </div>
     );    
 
 }

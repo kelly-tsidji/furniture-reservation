@@ -16,12 +16,12 @@ function Login() {
     }
 
     return (
-        <div className='container'>
+        <div className='container mt-5'>
 
-            <h2>Login</h2>
+            <h2 className='text-center mb-4'>Login</h2>
 
             <form onSubmit={handleLogin}>
-                <div className='form-group'>
+                <div className='form-group mb-3'>
 
                     <label>Username</label>
 
@@ -31,16 +31,16 @@ function Login() {
                         required />
                 </div>
 
-                <div className='form-group'>
+                <div className='form-group mb-3'>
 
                     <label>Password</label>
 
-                    <input type='text' className='form-control' 
+                    <input type='password' className='form-control' 
                            value={password} 
                            onChange={(e) => setPassword(e.target.value)} 
                         required />
                 </div>
-                <button type='submit' className='btn btn-primary'>Login</button>
+                <button type='submit' className='btn btn-primary w-100'>Login</button>
             </form>
         </div>
     );

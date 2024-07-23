@@ -22,13 +22,13 @@ function Register() {
     }
 
     return (
-        <div className='container'>
+        <div className='container mt-5'>
 
-            <h2>Register</h2>
+            <h2 className='text-center mb-4'>Register</h2>
 
             <form onSubmit={handleRegister}>
 
-                <div className='form-group'>
+                <div className='form-group mb-3'>
                     <label>First and Last Initial</label>
 
                     <input 
@@ -40,19 +40,19 @@ function Register() {
                 </div>
 
 
-                <div className='form-group'>
+                <div className='form-group mb-3'>
                     <label>Email</label>
 
                     <input 
                         type='email' 
                         className='form-control' 
                         value={username} 
-                        onChange={(e) => setUsername(e.target.value)} 
+                        onChange={(e) => setEmail(e.target.value)} 
                         required />
                 </div>
 
 
-                <div className='form-group'>
+                <div className='form-group mb-3'>
                     <label>Username</label>
 
                     <input 
@@ -64,19 +64,19 @@ function Register() {
                 </div>
 
 
-                <div className='form-group'>
+                <div className='form-group mb-3'>
 
                     <label>Password</label>
 
                     <input 
-                        type='text'
+                        type='password'
                         className='form-control' 
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         required />
                 </div>
 
-                <button type='submit' className='btn btn-primary'>Login</button>
+                <button type='submit' className='btn btn-primary w-100'>Register</button>
             </form>
         </div>
     );
