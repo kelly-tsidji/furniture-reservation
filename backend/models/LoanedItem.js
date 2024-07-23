@@ -5,6 +5,22 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
+        itemId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Items',
+                key: 'id',
+            },
+            allowNull: false,
+        },
+        inventoryId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Inventory',
+                key: 'id',
+            },
+            allowNull: false,
+        },
         expectedDeliveryDate: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -48,6 +64,14 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     LoanedItem.associate = (models) => {
+        LoanedItem.belongsTo(models.Item, {
+            foreignKey: 'itemId',
+            as: 'item',
+        });
+        LoanedItem.belongsTo(models.Inventory, {
+            foreignKey: 'inventoryId',
+            as: 'inventory',
+        });
         LoanedItem.belongsTo(models.Room, {
             foreignKey: 'deliveryRoomId',
             as: 'deliveryRoom',

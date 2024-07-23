@@ -28,6 +28,8 @@ module.exports = (sequelize, DataTypes) => {
             },
             allowNull: false,
         },
+    }, {
+        freezeTableName: true,  // Prevents Sequelize from pluralizing the table name
     });
 
     Inventory.associate = (models) => {
@@ -38,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
         Inventory.belongsTo(models.Room, {
             foreignKey: 'roomId',
             as: 'room',
+        });
+        Inventory.hasMany(models.LoanedItem, {
+            foreignKey: 'inventoryId',
+            as: 'inventory',
         });
     };
 

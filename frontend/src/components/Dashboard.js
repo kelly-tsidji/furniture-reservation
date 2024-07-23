@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import FormattedDate from './Date';
+import Sidebar from './Sidebar';
+
+// TODO: removed unecessary colums from fetch request
 
 function Dashboard() {
 
     // TODO: change ports
     const port = process.env.REACT_APP_PORT || 4000;
     const [dbData, setDbData] = useState([]);
+    const [selectedOrder, setSelectedOrder] = useState(null);
 
     // fetchData() gets the work orders from the database 
     // and saves them in dbData
@@ -46,21 +50,24 @@ function Dashboard() {
                 <p className='card-text'>
                     Added by: {order.user.username}
                 </p>
-                <a href='#' className='btn btn-primary'>
+                <button className='btn btn-primary' onClick={() => setSelectedOrder(order.workOrderId)}>
                     View details
-                </a>
+                </button>
             </div>
         </div>
     )
 
+    // display the work orders, 
+    // and optionally display the items loaned for a particular order
     return (
-
         <div className='container'>
             <header className='my-4'>
                 <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
             </header>
 
             {workOrders}
+
+            <Sidebar order={selectedOrder} onClose={() => setSelectedOrder(null)}/>
         </div>
     );    
 

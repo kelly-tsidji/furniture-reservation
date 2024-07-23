@@ -31,7 +31,11 @@ module.exports = (sequelize, DataTypes) => {
     Item.associate = (models) => {
         Item.hasMany(models.Inventory, {
             foreignKey: 'itemId',
-            as: 'inventories',
+            as: 'inventory',
+        });
+        Item.hasMany(models.LoanedItem, {
+            foreignKey: 'itemId',
+            as: 'loanedItem',
         });
     };
 
