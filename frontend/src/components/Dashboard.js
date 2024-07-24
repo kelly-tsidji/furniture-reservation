@@ -60,14 +60,19 @@ function Dashboard() {
     // display the work orders, 
     // and optionally display the items loaned for a particular order
     return (
-        <div className='container'>
-            <header className='my-4'>
-                <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
-            </header>
+        <div className='container-fluid'>
+            <div className='row flex-nowrap'>
 
-            {workOrders}
+                <main className='col ms-3 me-3 ms-md-4 me-md-4 ms-lg-5 me-lg-5'>
+                    <header className='my-4'>
+                        <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
+                    </header>
 
-            <Sidebar order={selectedOrder} onClose={() => setSelectedOrder(null)}/>
+                    {workOrders}
+                </main>
+
+                <Sidebar order={selectedOrder} onClose={() => setSelectedOrder(null)}/>
+            </div>
         </div>
     );    
 
