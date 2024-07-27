@@ -13,6 +13,13 @@ module.exports = (sequelize, DataTypes) => {
             },
             allowNull: false,
         },
+        status: {
+            type: DataTypes.ENUM('Requested', 'Delivered', 'Returned'), 
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
+        },
         inventoryId: {
             type: DataTypes.INTEGER,
             references: {

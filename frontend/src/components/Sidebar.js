@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style/Sidebar.css';
+import '../style/Dashboard.css';
 
-// rename file honestly
+// TODO: rename file honestly
 
 // display the items loaned for a work order
 // TODO: finish
@@ -9,54 +9,108 @@ export default function Sidebar({order, onClose}) {
     if (!order) return null;
 
     return (
-        // <div className={`sidebar ${order ? 'show': ''}`}>
-        //     <button className='btn-close' onClick={onClose}></button>
-        //     <p>Hello!</p>
-        // </div>
+       
+        <div id="sidebar-container">
 
-    // <div className="col-2 col-md-3 col-lg-2 px-0">
-    //     <div id="sidebar" className="collapse collapse-horizontal show border-end">
-    //         <div className="sidebar-header">
-    //             <h6 className="sidebar-title d-none d-sm-block" id="sidebar-title">Menu</h6>
-    //             <button className='btn-close' onClick={onClose}></button>
-    //         </div>
-    //         <div id="sidebar-nav" className="list-group border-0 rounded-0 text-sm-start min-vh-100">
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-bootstrap"></i> <span>Item</span> </a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-film"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-heart"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-bricks"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-clock"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-archive"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-gear"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-calendar"></i> <span>Item</span></a>
-    //             <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-envelope"></i> <span>Item</span></a>
-    //         </div>
-    //     </div>
-    // </div>
+            <div id="sidebar" className="border-end">
+                <div className="sidebar-header">
+                    {/* <h6 className="sidebar-title d-none d-sm-block" id="sidebar-title">Loaned Furniture</h6> */}
+                    <span className="fs-5 fw-semibold" id="sidebar-title">Loaned Furniture</span>
+                    <button className="btn-close" onClick={onClose}></button>
+                </div>
+
+                <div className="list-group list-group-flush border-bottom scrollarea">
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small>Wed</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Tues</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Mon</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Wed</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Tues</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Mon</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Wed</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Tues</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Mon</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Wed</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Tues</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                    <a href="#" className="list-group-item list-group-item-action py-3 lh-tight">
+                        <div className="d-flex w-100 align-items-center justify-content-between">
+                            <strong className="mb-1">List group item heading</strong>
+                            <small className="text-muted">Mon</small>
+                        </div>
+                        <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                    </a>
+                </div>
 
 
-    // <div id="sidebar-container" className="col-3 px-0">
-    <div id="sidebar-container">
 
-        {/* <div id="sidebar" className="collapse collapse-horizontal show border-end"> */}
-        <div id="sidebar" className="border-end">
+
                 
-            <div className="sidebar-header">
-                <h6 className="sidebar-title d-none d-sm-block" id="sidebar-title">Menu</h6>
-                <button className="btn-close" onClick={onClose}></button>
-            </div>
-            <div id="sidebar-nav" className="list-group border-0 rounded-0 text-sm-start min-vh-100">
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-bootstrap"></i> <span>Item</span> </a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-film"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-heart"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-bricks"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-clock"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-archive"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-gear"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-calendar"></i> <span>Item</span></a>
-                <a href="#" className="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i className="bi bi-envelope"></i> <span>Item</span></a>
             </div>
         </div>
-    </div>
     );
 };

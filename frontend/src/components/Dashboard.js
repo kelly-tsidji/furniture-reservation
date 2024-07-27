@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import FormattedDate from './Date';
 import Sidebar from './Sidebar';
-import '../style/Sidebar.css';
+import Navbar from './Navbar';
+import '../style/Dashboard.css';
+
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 // TODO: removed unecessary colums from fetch request
 
@@ -12,6 +16,7 @@ function Dashboard() {
     const [dbData, setDbData] = useState([]);
     const [selectedOrder, setSelectedOrder] = useState(null);
 
+    // TODO: update to fetch only upcoming or currently happening work orders
     // fetchData() gets the work orders from the database 
     // and saves them in dbData
     const fetchData = async() => {
@@ -33,7 +38,7 @@ function Dashboard() {
     // fetch the work orders when the page is opened by the user
     useEffect(() => {
         fetchData();
-    }, [])
+    })
 
     console.log(dbData);  // TODO: remove later
 
@@ -58,28 +63,29 @@ function Dashboard() {
         </div>
     )
 
+    // TODO: actually style main section lol
     // display the work orders, 
     // and optionally display the items loaned for a particular order
     return (
-        <div className='container-fluid'>
-            
-            {/* <div className={`row flex-nowrap ${selectedOrder ? 'sidebar-open' : ''}`}> */}
-            <div className='row flex-nowrap'>
-                
-                <main className={`main-content ${selectedOrder ? 'shrink' : ''}`}>
-                {/* <main className={`col ${selectedOrder ? 'col-md-8' : 'col-md-11'} ms-3 me-3 ms-md-4 me-md-4 ms-lg-5 me-lg-5`}> */}
-                {/* <main className='col ms-3 me-3 ms-md-4 me-md-4 ms-lg-5 me-lg-5'> */}
-                   
-                    <header className='my-4'>
-                        <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
-                    </header>
 
-                    {workOrders}
-                </main>
+        <>
+            <Navbar/>
 
-                <Sidebar order={selectedOrder} onClose={() => setSelectedOrder(null)}/>
+            <div className='container-fluid'>
+                <div className='row flex-nowrap'>
+
+                    <main className={`main-content ${selectedOrder ? 'shrink' : ''}`}>
+                        <header className='my-4'>
+                            <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
+                        </header>
+
+                        {workOrders}
+                    </main>
+
+                    <Sidebar order={selectedOrder} onClose={() => setSelectedOrder(null)}/>
+                </div>
             </div>
-        </div>
+        </>
     );    
 
 }

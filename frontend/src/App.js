@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import logo from './logo.svg';   // TODO: remove later??
 import './App.css';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import Dashboard from './components/Dashboard.js';

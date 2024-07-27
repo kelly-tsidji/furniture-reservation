@@ -1,36 +1,4 @@
-/* #sidebar-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 1050;
-}
-
-#sidebar {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
-}
-
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #ddd;
-}
-
-#sidebar-nav .list-group-item {
-    padding: 0.5rem 1rem;
-} */
-
-
-
-
-
-
-#sidebar-container {
+.container-fluid #sidebar-container {
     position: fixed;
     top: 0;
     right: 0;
@@ -44,29 +12,24 @@
 
     padding-left: 0;
     padding-right: 0;
+
+    border-left-width: 1px !important;
+    border-left-style: solid !important;
+    border-left-color: rgb(222, 226, 230) !important;
+    
 }
 
-#sidebar {
-    padding-bottom: 1rem;
+/* #sidebar {
     padding-top: 1rem;
-    /* padding-right: 1rem; */
-}
+} */
 
 .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 1rem;
+    padding: 1rem;
     border-bottom: 1px solid #ddd;
     height: 100%;   /* TODO: remove?? */
-}
-
-#sidebar-nav .list-group-item {
-    padding: 0.5rem 1rem;
-}
-
-#sidebar-title {
-    margin: 0;
 }
 
 .container-fluid .main-content {
