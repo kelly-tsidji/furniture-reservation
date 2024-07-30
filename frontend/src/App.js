@@ -9,6 +9,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import Dashboard from './components/Dashboard.js';
+import WorkOrderDetails from './components/WorkOrderDetails.js';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/orders/:workOrderId' element={<WorkOrderDetails />} />
       </Routes>
     </Router>
   );

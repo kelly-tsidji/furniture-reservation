@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
@@ -12,7 +12,7 @@ function Navbar() {
                 <div className="container">
                     <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         
-                        <button type="button" className="btn btn-warning col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">Add New Workorder</button>
+                        <button type="button" className="btn btn-warning col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">Add New Work Order</button>
                         
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                             <input type="search" class="form-control form-control-dark" placeholder="Search work orders by ID..." aria-label="Search"/>
@@ -20,10 +20,11 @@ function Navbar() {
 
                         <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                             <li>
-                                <a href="#" className="nav-link text-white d-flex flex-column align-items-center">
+                                <Link to='/dashboard' className="nav-link text-white d-flex flex-column align-items-center">
                                     <i className="bi bi-speedometer2 fs-4"></i>
                                     <span>Dashboard</span>
-                                </a>
+                                </Link>
+
                             </li>
                             <li>                            
                                 <a href="#" className="nav-link text-white d-flex flex-column align-items-center">
