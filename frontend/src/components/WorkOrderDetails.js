@@ -10,6 +10,29 @@ function WorkOrderDetails() {
     const { workOrderId } = useParams();
     const [selectedOrder, setSelectedOrder] = useState(false);
 
+    // TODO: fill in with real data
+    // the columns of the table
+    // const columns = useMemo( () => [
+    //     {
+    //         Header: 'Order #',
+    //         accessor: 'workOrderId',
+    //         Cell: ({value}) => <Link to={`/orders/${value}`}>{value}</Link>
+    //     },
+    //     { Header: 'Event', accessor: 'event' },
+    //     {
+    //         Header: 'Start Date',
+    //         accessor: 'startDate',
+    //         Cell: ({value}) => FormattedDate(value)
+    //     },
+    //     {
+    //         Header: 'End Date',
+    //         accessor: 'endDate',
+    //         Cell: ({value}) => FormattedDate(value)
+    //     },
+    //     { Header: 'Building', accessor: 'building.name' },
+    //     { Header: 'Added by', accessor: 'user.username' },
+    // ], []);
+
     return (
         <>
             <Navbar/>
@@ -30,7 +53,7 @@ function WorkOrderDetails() {
                                     <button type="button" className="btn btn-secondary btn-sm">+ Add</button>
                                 </div>
 
-                                <DataTable />
+                                {/* <DataTable columns={columns} data={dbData} /> */}
                             </div>
                         </div>
 

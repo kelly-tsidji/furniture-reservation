@@ -1,67 +1,40 @@
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+function NewWorkOrder({ onClose }) {
+    return (
+        <div className="modal show" tabIndex="-1" style={{ display: 'block' }}>
+            <div className="modal-dialog">
+                <div className="modal-content">
 
-function NewWorkOrder({order}) {
+                    <div className="modal-header">
+                        <h5 className="modal-title">New Work Order</h5>
+                        <button type="button" className="btn-close" onClick={onClose}></button>
+                    </div>
 
-    if (!order) return null;
+                    <div className="modal-body">
+                        {/* CONTENT HERE */}
+                        <p>Loaned Furniture</p>
 
-//     return (
+                        <div className="list-group list-group-flush border-bottom scrollarea">
+                            <a href="#" className="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                                <div className="d-flex w-100 align-items-center justify-content-between">
+                                    <strong className="mb-1">List group item heading</strong>
+                                    <small>Wed</small>
+                                </div>
+                                <div className="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+                            </a>
+                        </div>
+                    </div>
 
-//         <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-//     <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-//       <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-//       <span className="fs-4">Sidebar</span>
-//     </a>
-//     <hr />
-//     <ul className="nav nav-pills flex-column mb-auto">
-//       <li className="nav-item">
-//         <a href="#" className="nav-link active" aria-current="page">
-//           <svg className="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-//           Home
-//         </a>
-//       </li>
-//       <li>
-//         <a href="#" className="nav-link text-white">
-//           <svg className="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-//           Dashboard
-//         </a>
-//       </li>
-//       <li>
-//         <a href="#" className="nav-link text-white">
-//           <svg className="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-//           Orders
-//         </a>
-//       </li>
-//       <li>
-//         <a href="#" className="nav-link text-white">
-//           <svg className="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-//           Products
-//         </a>
-//       </li>
-//       <li>
-//         <a href="#" className="nav-link text-white">
-//           <svg className="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-//           Customers
-//         </a>
-//       </li>
-//     </ul>
-//     <hr />
-//     <div className="dropdown">
-//       <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-//         <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
-//         <strong>mdo</strong>
-//       </a>
-//       <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-//         <li><a className="dropdown-item" href="#">New project...</a></li>
-//         <li><a className="dropdown-item" href="#">Settings</a></li>
-//         <li><a className="dropdown-item" href="#">Profile</a></li>
-//         <li><hr className="dropdown-divider" /></li>
-//         <li><a className="dropdown-item" href="#">Sign out</a></li>
-//       </ul>
-//     </div>
-//   </div>
-    
-    // )
- 
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>
+                        <button type="button" className="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default NewWorkOrder;

@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+// TODO: make sure i'm not importing extra stuff for each file
+
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate, Link } from "react-router-dom";
 
 import FormattedDate from './Date';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
-import NewWorkOrder from './NewWorkOrder';
+import DataTable from './DataTable';
+import TabGroup from './TabGroup';
 
 import '../style/Dashboard.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-
+// TODO: add enough work orders to see table pagination
 // TODO: removed unecessary colums from fetch request
 
 function Dashboard() {
@@ -21,8 +24,6 @@ function Dashboard() {
     const [dbData, setDbData] = useState([]);
     // const [selectedOrder, setSelectedOrder] = useState(null);    // TODO: this was for the old sidebar
     
-    const [newOrder, setNewOrder] = useState(false);
-
     // fetchData() gets the upcoming or currently happening work orders,
     // and saves them in dbData
     const fetchData = async() => {
@@ -47,13 +48,15 @@ function Dashboard() {
     }
 
     // fetch the recent work orders when the page is opened by the user
+    // NOTE: the page automatically changes when the data is updated
     useEffect(() => {
         fetchData();
-    })
+    }, []);
 
     console.log("DB DATA");
     console.log(dbData);  // TODO: remove later
 
+    // TODO: delete later
     // stores each work order with its associated event, building, and user
     // NOTE: the work orders are already sorted by event date
     const workOrders = dbData.map(order =>
@@ -79,6 +82,45 @@ function Dashboard() {
         </div>
     )
 
+    console.log("work orders");
+    console.log(workOrders);
+
+    // the columns of the table
+    const columns = useMemo( () => [
+        {
+            Header: 'Order #',
+            accessor: 'workOrderId',
+            Cell: ({value}) => <Link to={`/orders/${value}`}>{value}</Link>
+        },
+        { Header: 'Event', accessor: 'event' },
+        {
+            Header: 'Start Date',
+            accessor: 'startDate',
+            Cell: ({value}) => FormattedDate(value)
+        },
+        {
+            Header: 'End Date',
+            accessor: 'endDate',
+            Cell: ({value}) => FormattedDate(value)
+        },
+        { Header: 'Building', accessor: 'building.name' },
+        { Header: 'Added by', accessor: 'user.username' },
+    ], []);
+
+    // Define the tabs and their content
+    const tabs = [
+        {
+            eventKey: 'allOrders',
+            title: 'All Work Orders',
+            content: <DataTable columns={columns} data={dbData} />,
+        },
+        {
+            eventKey: 'myOrders',
+            title: 'My Work Orders',
+            content: <DataTable columns={columns} data={dbData} />,
+        },
+    ];
+
     // TODO: actually style main section lol
     // display the work orders, 
     // and optionally display the items loaned for a particular order
@@ -89,6 +131,7 @@ function Dashboard() {
             <div className='container-fluid'>
                 <div className='row flex-nowrap'>
 
+                    {/* TODO: might not need main anymore */}
                     {/* this was for the old sidebar */}
                     {/* <main className={`main-content ${selectedOrder ? 'shrink' : ''}`}> */}
                     <main className={'main-content'}>
@@ -96,11 +139,12 @@ function Dashboard() {
                             <h1 className='text-center'>Dashboard: Upcoming Work Orders</h1>
                         </header>
 
-                        {workOrders}
+                        {/* <DataTable columns={columns} data={dbData} /> */}
+                        <TabGroup tabs={tabs} />
+
+                        {/* {workOrders} */}
                     </main>
 
-                    <NewWorkOrder order={newOrder}/>
-                    
                     {/* used for the old sidebar */}
                     {/* <Sidebar order={selectedOrder} onClose={() => setSelectedOrder(null)}/> */}
                     

@@ -21,44 +21,16 @@ app.use('/', workOrderRoutes);
 
 dotenv.config();
 
-
-
-
-
-// const { Item } = require('./models');
-
-// (async () => {
-//   try {
-//     await db.sequelize.sync({ alter: true });
-
-//     // Create 3 items
-//     const items = [
-//       { name: 'Chair', description: 'Comfortable office chair', category: 'Furniture' },
-//       { name: 'Table', description: 'Large conference table', category: 'Furniture' },
-//       { name: 'Lamp', description: 'LED desk lamp', category: 'Lighting' },
-//     ];
-
-//     await Item.bulkCreate(items);
-//     console.log('3 items created successfully.');
-
-//     // Add your existing loaned items creation logic here
-
-//   } catch (error) {
-//     console.error('Error creating items:', error);
-//   }
-// })();
-
-
 // TODO: change ports
 const port = process.env.PORT || 4000;
 
 
 // TODO: do I still need sync????
 // TODO: remove port from print statement at the end
-// db.sequelize.sync({ alter: true }).then(() => {
+db.sequelize.sync({ alter: true }).then(() => {
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
     });
-// }).catch((error) => {
-//     console.error('Error syncing database:', error);
-// });
+}).catch((error) => {
+    console.error('Error syncing database:', error);
+});

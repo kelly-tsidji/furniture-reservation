@@ -5,13 +5,6 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                min: 0,
-            },
-        },
         itemId: {
             type: DataTypes.INTEGER,
             references: {
@@ -20,6 +13,13 @@ module.exports = (sequelize, DataTypes) => {
             },
             allowNull: false,
         },
+        status: {
+            type: DataTypes.ENUM('On Loan', 'Available', 'Broken'), 
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
+        },
         roomId: {
             type: DataTypes.INTEGER,
             references: {
@@ -27,6 +27,17 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id',
             },
             allowNull: false,
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
+        },
+        qrCodeUrl: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
     }, {
         freezeTableName: true,  // Prevents Sequelize from pluralizing the table name
